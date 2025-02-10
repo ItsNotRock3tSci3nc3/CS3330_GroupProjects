@@ -90,7 +90,7 @@ public class Book {
 
 	@Override
 	public String toString() {
-		return "Title = " + this.getTitle() + "\nAuthor = " + this.getAuthor() + "\nISBN = " + this.getISBN() + "\nPrice = " + this.getISBN();
+		return "Title = " + this.getTitle() + " Author = " + this.getAuthor() + " ISBN = " + this.getISBN() + " Price = " + this.getISBN() + "\n";
 	}
 	
 	
