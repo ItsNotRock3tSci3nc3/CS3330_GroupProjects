@@ -1,5 +1,6 @@
 package edu.mu.Library;
 
+
 public class Library {
 	private Book[] books;
 	private int count;
@@ -36,7 +37,9 @@ public class Library {
 	 * Returns true if book is added, false if not
 	 */
 	public boolean addBook(Book book) {
+		
 		System.out.println("Adding book...");
+		
 		
 		if(this.count < getBooks().length) {
 			for(int i = 0; i < getBooks().length; i++) {
@@ -61,35 +64,27 @@ public class Library {
 	 * returns true if book is removed, false if not
 	 */
 	public boolean removeBook(Book book) {
-		System.out.println("Removing book...");
-		for(int i =0; i < getBooks().length; i++) {
-			System.out.println(i + ": " +getBooks()[i].equals(book));
-			if(getBooks()[i].equals(book)) {
-				this.books[i] = null;
-				this.count--;
-				fixArray();
-				System.out.println("Book removed");
+		
+		for (int i = 0; i < getBooks().length; i++) // iterate to find matching book
+		{
+			if (this.books[i] != null && this.books[i].equals(book)) // null check and equal comparison
+			{
+				System.out.println("Removing book: " + this.books[i].toString());
+				
+				for (int j = i; j < getBooks().length - 1; j++) // shift remaining books to the left
+				{
+					books[j] = books[j + 1];
+				}
+				
+				books[getBooks().length - 1] = null; // set last position to null and decrement count
+				count--;
 				return true;
 			}
 		}
-		System.out.println("Book not found");
+		System.out.println("Cannot remove book " + book.toString());
 		return false;
 	}
 	
-	private void fixArray() {
-		for(int i = 0; i < getBooks().length; i++) {
-			try {
-				if(this.books[i] == null && this.books[i+1] != null) {
-					this.books[i] = this.books[i+1];
-					this.books[i+1] = null;
-				}
-			}
-			catch(Exception e) {
-				break;
-			}
-			
-		}
-	}
 	
 	/**
 	 * Searches for book by ISBN
@@ -101,7 +96,7 @@ public class Library {
 	public Book searchByISBN(String ISBN) {
 		System.out.println("Searching for book with ISBN " + ISBN);
 		for(int i = 0; i< getBooks().length; i++) {
-			if(this.books[i].getISBN()==ISBN) {
+			if(this.books[i] != null && this.books[i].getISBN().equals(ISBN)) { // updated if statement to avoid null pointer exception and use equals()
 				System.out.println("Book found: " + this.books[i].toString());
 				return this.books[i];
 			}
@@ -116,8 +111,7 @@ public class Library {
 	public void displayBooks() {
 		System.out.println("All books in the library");
 		for(int i = 0; i < this.count; i++) {
-			System.out.print(i + ". " + books[i].toString());
+			System.out.print((i+1) + ". " + books[i].toString()); // fixed numbering
 		}
 	}
-	
 }

@@ -81,7 +81,7 @@ public class Book {
 	}
 	
 	public boolean equals(Object other) {
-		if(this.ISBN == ((Book) other).getISBN()) {
+		if(this.ISBN == ((Book)other).getISBN()) {
 			return true;
 		}
 		return false;
@@ -90,7 +90,7 @@ public class Book {
 
 	@Override
 	public String toString() {
-		return this.getTitle() + " by " + this.getAuthor() + " (ISBN: " + this.getISBN() + " Price: " + this.getISBN() + ")\n";
+		return this.getTitle() + " by " + this.getAuthor() + " (ISBN: " + this.getISBN() + " Price: $" + this.getPrice() + ")\n";
 	}
 	
 	
