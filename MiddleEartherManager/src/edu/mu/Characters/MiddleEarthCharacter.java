@@ -35,11 +35,9 @@ public abstract class MiddleEarthCharacter {
 	}
 
 
-
 	public double getPower() {
 		return power;
 	}
-
 
 
 	public void setPower(double power) {
@@ -51,6 +49,10 @@ public abstract class MiddleEarthCharacter {
 	public abstract boolean attack(MiddleEarthCharacter target);
 	
 	public abstract String getRace();
+	
+	public String displayInfo() {
+		String info = "Name: " + name + "\nHealth: " + health + "\nPower: " + power;
+		//System.out.println(info);
+		return info;
+	}
 }
-
-
