@@ -54,15 +54,29 @@ public class CharacterManager {
 		
 	}
 	
+	public boolean deleteCharacter(MiddleEarthCharacter character) {
+		for (int i = 0; i < size; i++)
+		{
+			if (this.characters[i] == character)
+			{
+				for (int j = i; j < size - 1; j++) // shift elements to the left
+				{
+					this.characters[j] = this.characters[j+1];
+				}
+				
+				this.characters[size - 1] = null;
+				size--;
+				return true;
+			}
+		}
+		return false;
+	 }
 	
 	public void displayAllCharacters() {
 		for(int i =0; i<size; i++) {
 			System.out.println(characters[i].displayInfo());
 		}
 	}
-	
-	
-	
 	
 	
 }
