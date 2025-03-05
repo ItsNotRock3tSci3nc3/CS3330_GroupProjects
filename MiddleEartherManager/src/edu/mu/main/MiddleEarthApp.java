@@ -1,6 +1,6 @@
-package mu.edu.main;
-import mu.edu.Characters;
-import mu.edu.Manager;
+package edu.mu.main;
+import edu.mu.Characters.*;
+import edu.mu.Manager.*;
 
 public class MiddleEarthApp {
 	public static void main(String[] args) {
