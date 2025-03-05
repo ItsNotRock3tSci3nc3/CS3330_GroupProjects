@@ -55,6 +55,13 @@ public class CharacterManager {
 	}
 	
 	
+	public void displayAllCharacters() {
+		for(int i =0; i<size; i++) {
+			System.out.println(characters[i].displayInfo());
+		}
+	}
+	
+	
 	
 	
 	
