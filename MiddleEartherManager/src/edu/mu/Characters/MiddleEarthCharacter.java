@@ -14,8 +14,11 @@ public abstract class MiddleEarthCharacter {
 	/**
 	 * 
 	 * @param name
+	 * String
 	 * @param health
+	 * Double
 	 * @param power
+	 * Double
 	 * Constructor for MiddleEarthCharacter
 	 * sets attributes
 	 */
@@ -43,7 +46,7 @@ public abstract class MiddleEarthCharacter {
 
 	/**
 	 * Getter method for health
-	 * @return
+	 * @return health
 	 */
 	public double getHealth() {
 		return health;
@@ -59,7 +62,7 @@ public abstract class MiddleEarthCharacter {
 
 	/**
 	 * Getter method for power
-	 * @return
+	 * @return power
 	 */
 	public double getPower() {
 		return power;
@@ -68,6 +71,7 @@ public abstract class MiddleEarthCharacter {
 	/**
 	 * Setter method for power
 	 * @param power
+	 * double for power value
 	 */
 	public void setPower(double power) {
 		this.power = power;
@@ -76,13 +80,14 @@ public abstract class MiddleEarthCharacter {
 	/**
 	 * Abstract attack method for each instance of MiddleEarthCharacter
 	 * @param target
+	 * MiddleEarthCharacter object
 	 * @return true or false
 	 */
 	public abstract boolean attack(MiddleEarthCharacter target);
 	
 	/**
 	 * Abstract getRace method for each instance of MiddleEarthCharacter
-	 * @return
+	 * @return race
 	 */
 	public abstract String getRace();
 	

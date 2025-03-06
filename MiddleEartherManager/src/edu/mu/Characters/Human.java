@@ -27,10 +27,11 @@ public class Human extends MiddleEarthCharacter{
 		}
 		
 		if (target instanceof Wizard) {
-			this.power = 1.5;
+			this.power *= 1.5;
+			target.health-=this.power;
 			return true;
 		}
-		
+		target.health-=this.power;
 		return false;
 	}
 	

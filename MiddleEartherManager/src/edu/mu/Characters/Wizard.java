@@ -27,10 +27,11 @@ public class Wizard extends MiddleEarthCharacter{
 		}
 		
 		if (target instanceof Dwarf) {
-			this.power = 1.5;
+			this.power *= 1.5;
+			target.health-=this.power;
 			return true;
 		}
-		
+		target.health-=this.power;
 		return false;
 	}
 	
