@@ -21,6 +21,7 @@ public class CharacterManager {
     /**
      * Add character method
      * @param c
+     * MiddleEarthCharacter object
      * @return true or false,
      * true if successful, false if not 
      */
@@ -43,6 +44,7 @@ public class CharacterManager {
     /**
      * getCharacter method: Search for character
      * @param name
+     * String for name
      * @return character name or null
      * if character found return name, otherwise return null
      */
@@ -60,9 +62,13 @@ public class CharacterManager {
     /**
      * update character method: update characters attributes
      * @param character
+     * MiddleEarthCharacter object
      * @param name
+     * String for name
      * @param health
+     * Double for health
      * @param power
+     * Double for power
      * @return true or false
      * 
      */
@@ -84,6 +90,7 @@ public class CharacterManager {
     /**
      * delete character method 
      * @param character
+     * MiddleEarthCharacter object
      * @return true or false
      * true if character was removed, false if not
      */
