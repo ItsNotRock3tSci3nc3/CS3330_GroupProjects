@@ -1,6 +1,5 @@
 package edu.mu.Characters;
 
-
 /**
  * Abstract class MiddleEarthCharacter with attributes:
  * name
@@ -92,9 +91,7 @@ public abstract class MiddleEarthCharacter {
 	 * @return info
 	 */
 	public String displayInfo() {
-		String info = "Name: " + name + "\nHealth: " + health + "\nPower: " + power;
+		String info = "Name: " + name + " | Health: " + health + " | Power: " + power;
 		return info;
 	}
 }
-
-

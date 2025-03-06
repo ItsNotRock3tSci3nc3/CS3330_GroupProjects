@@ -26,10 +26,8 @@ public class Human extends MiddleEarthCharacter{
 			return false;
 		}
 		
-		double damage = power;
-		
 		if (target instanceof Wizard) {
-			damage = 1.5;
+			this.power = 1.5;
 			return true;
 		}
 		

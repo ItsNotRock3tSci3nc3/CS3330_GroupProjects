@@ -26,10 +26,8 @@ public class Elf extends MiddleEarthCharacter {
 			return false;
 		}
 		
-		double damage = power;
-		
 		if (target instanceof Orc) {
-			damage = 1.5;
+			this.power = 1.5;
 			return true;
 		}
 		

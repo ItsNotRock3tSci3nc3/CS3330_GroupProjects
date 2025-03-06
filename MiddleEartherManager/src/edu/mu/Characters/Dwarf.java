@@ -26,10 +26,8 @@ public class Dwarf extends MiddleEarthCharacter {
 			return false;
 		}
 		
-		double damage = power;
-		
 		if (target instanceof Elf) {
-			damage = 1.5;
+			this.power = 1.5;
 			return true;
 		}
 		
