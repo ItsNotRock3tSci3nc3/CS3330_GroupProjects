@@ -1,5 +1,7 @@
 package mylittlemozart.edu.mu.instrument;
 
-public class InstrumentStrategy {
+import javax.sound.midi.*;
 
+interface InstrumentStrategy {
+	void applyInstrument(Track track, int channel) throws InvalidMidiDataException;
 }
