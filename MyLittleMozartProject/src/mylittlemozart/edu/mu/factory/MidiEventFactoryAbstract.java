@@ -1,5 +1,8 @@
-package mylittlemozart.edu.mu.factory;
+package midi.factory;
 
-public class MidiEventFactoryAbstract {
-
+/**
+ * Abstract factory interface for creating MIDI event factories
+ */
+public interface MidiEventFactoryAbstract {
+    MidiEventFactory createFactory();
 }
