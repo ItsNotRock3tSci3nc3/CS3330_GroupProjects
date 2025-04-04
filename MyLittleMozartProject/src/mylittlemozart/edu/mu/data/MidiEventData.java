@@ -17,5 +17,51 @@ public class MidiEventData {
 		this.noteOnOff = noteOnOff;
 	}
 	
+	public int getStartEndTick() {
+		return startEndTick;
+	}
 	
+	public void setStartEndTick() {
+		this.startEndTick = startEndTick;
+	}
+	
+	public int getVelocity() {
+		return velocity;
+	}
+	
+	public void setVelocity() {
+		this.velocity = velocity;
+	}
+	
+	public int getNote() {
+		return note;
+	}
+	
+	public void setNote() {
+		this.note = note;
+	}
+	
+	public int getChannel() {
+		return channel;
+	}
+	
+	public void setChannel() {
+		this.channel = channel;
+	}
+	
+	public int getInstrument() {
+		return instrument;
+	}
+	
+	public void setInstrument() {
+		this.instrument = instrument;
+	}
+	
+	public int getNoteOnOff() {
+		return noteOnOff;
+	}
+	
+	public void setNoteOnOff() {
+		this.noteOnOff = noteOnOff;
+	}
 }
