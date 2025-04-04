@@ -1,5 +1,9 @@
 package mylittlemozart.edu.mu.data;
 
+
+/**
+ * Holds parsed MIDI event data from a CSV line.
+ */
 public class MidiEventData {
 	private int startEndTick;
 	private int velocity;
@@ -8,6 +12,16 @@ public class MidiEventData {
 	private int instrument;
 	private int noteOnOff;
 	
+	/**
+     * Constructor for MidiEventData.
+     * 
+     * @param startEndTick tick at which the note on/off occurs
+     * @param velocity MIDI velocity
+     * @param note MIDI note number
+     * @param channel MIDI channel
+     * @param instrument MIDI instrument number
+     * @param noteOnOff either ShortMessage.NOTE_ON or ShortMessage.NOTE_OFF
+     */
 	public MidiEventData(int startEndTick, int velocity, int note, int channel, int instrument, int noteOnOff) {
 		this.startEndTick = startEndTick;
 		this.velocity = velocity;
@@ -21,7 +35,7 @@ public class MidiEventData {
 		return startEndTick;
 	}
 	
-	public void setStartEndTick() {
+	public void setStartEndTick(int startEndTick) {
 		this.startEndTick = startEndTick;
 	}
 	
@@ -29,7 +43,7 @@ public class MidiEventData {
 		return velocity;
 	}
 	
-	public void setVelocity() {
+	public void setVelocity(int velocity) {
 		this.velocity = velocity;
 	}
 	
@@ -37,7 +51,7 @@ public class MidiEventData {
 		return note;
 	}
 	
-	public void setNote() {
+	public void setNote(int note) {
 		this.note = note;
 	}
 	
@@ -45,7 +59,7 @@ public class MidiEventData {
 		return channel;
 	}
 	
-	public void setChannel() {
+	public void setChannel(int channel) {
 		this.channel = channel;
 	}
 	
@@ -53,7 +67,7 @@ public class MidiEventData {
 		return instrument;
 	}
 	
-	public void setInstrument() {
+	public void setInstrument(int instrument) {
 		this.instrument = instrument;
 	}
 	
@@ -61,7 +75,7 @@ public class MidiEventData {
 		return noteOnOff;
 	}
 	
-	public void setNoteOnOff() {
+	public void setNoteOnOff(int noteOnOff) {
 		this.noteOnOff = noteOnOff;
 	}
 }

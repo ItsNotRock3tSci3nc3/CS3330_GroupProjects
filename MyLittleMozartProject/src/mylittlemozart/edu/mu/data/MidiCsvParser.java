@@ -1,5 +1,4 @@
 package mylittlemozart.edu.mu.data;
-
 import java.io.BufferedReader;
 import java.io.FileReader;
 import java.io.IOException;
@@ -13,10 +12,7 @@ import javax.sound.midi.ShortMessage;
 public class MidiCsvParser {
 
     /**
-     * Parses a CSV file with expected format:
-     *   startEndTick, Note_on_c or Note_off_c, channel, note, velocity, instrument
-     * Example line:
-     *   0, Note_on_c, 0, 43, 100, 34
+     * Parses a CSV file with expected format
      * 
      * @param filePath path to the CSV file
      * @return a list of MidiEventData
@@ -34,23 +30,13 @@ public class MidiCsvParser {
                     continue;
                 }
 
-                // Split the line by commas
                 String[] values = line.split(",");
 
-                // OPTIONAL: If your CSV has a header row you want to ignore, e.g.:
-                // if (values[0].equalsIgnoreCase("startEndTick")) {
-                //     continue; // skip header
-                // }
-
-                // Check we have at least 6 columns
-                if (values.length < 6) {
-                    // If not enough columns, skip or throw an exception
-                    // For now, let's just skip it
+                if (values.length < 6) { // chech for 6 columns
                     continue;
                 }
 
-                // Trim whitespace to avoid parsing errors
-                for (int i = 0; i < values.length; i++) {
+                for (int i = 0; i < values.length; i++) { // avoid whitespace errors
                     values[i] = values[i].trim();
                 }
 
@@ -61,17 +47,15 @@ public class MidiCsvParser {
                 int velocity = Integer.parseInt(values[4]);
                 int instrument = Integer.parseInt(values[5]);
 
-                // Convert the string to ShortMessage.NOTE_ON or ShortMessage.NOTE_OFF
                 int noteOnOff;
-                if (noteOnOffStr.equalsIgnoreCase("Note_on_c")) {
+                if (noteOnOffStr.equalsIgnoreCase("Note_on_c")) { // covert string to be on or off
                     noteOnOff = ShortMessage.NOTE_ON;
                 } else {
                     // Assume everything else is Note_off_c
                     noteOnOff = ShortMessage.NOTE_OFF;
                 }
 
-                // Create the MidiEventData object
-                MidiEventData data = new MidiEventData(
+                MidiEventData data = new MidiEventData( // create MidiEventData object
                         startEndTick,
                         velocity,
                         note,
@@ -80,7 +64,6 @@ public class MidiCsvParser {
                         noteOnOff
                 );
 
-                // Add to the list
                 events.add(data);
             }
         }
