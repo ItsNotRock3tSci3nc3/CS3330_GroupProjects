@@ -25,8 +25,7 @@ public class MidiCsvParser {
             String line;
 
             while ((line = br.readLine()) != null) {
-                // Skip empty lines
-                if (line.trim().isEmpty()) {
+                if (line.trim().isEmpty()) { // skip any empty lines
                     continue;
                 }
 
@@ -51,7 +50,6 @@ public class MidiCsvParser {
                 if (noteOnOffStr.equalsIgnoreCase("Note_on_c")) { // covert string to be on or off
                     noteOnOff = ShortMessage.NOTE_ON;
                 } else {
-                    // Assume everything else is Note_off_c
                     noteOnOff = ShortMessage.NOTE_OFF;
                 }
 

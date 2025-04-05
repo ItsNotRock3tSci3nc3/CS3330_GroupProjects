@@ -1,6 +1,5 @@
 package mylittlemozart.edu.mu.data;
 
-
 /**
  * Holds parsed MIDI event data from a CSV line.
  */
