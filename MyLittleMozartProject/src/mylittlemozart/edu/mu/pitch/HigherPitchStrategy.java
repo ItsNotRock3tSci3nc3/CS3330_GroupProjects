@@ -1,9 +1,8 @@
 package mylittlemozart.edu.mu.pitch;
 
-public class HigherPitchStrategy implements PitchStrategy{
-	private static final int PITCH_INCREASE = 2;
+public class HigherPitchStrategy implements PitchStrategy {
 
-    /**
+	/**
      * Increases pitch by 2 semitones.
      *
      * @param note the original note value
@@ -11,6 +10,10 @@ public class HigherPitchStrategy implements PitchStrategy{
      */
     @Override
     public int modifyPitch(int note) {
-        return note + PITCH_INCREASE;
+        int newNote = note + 2;
+        if (newNote > 127) {
+            newNote = 127;
+        }
+        return newNote;
     }
 }
