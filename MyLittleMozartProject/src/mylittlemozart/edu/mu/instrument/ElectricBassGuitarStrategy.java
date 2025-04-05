@@ -2,7 +2,7 @@ package mylittlemozart.edu.mu.instrument;
 import javax.sound.midi.*;
 public class ElectricBassGuitarStrategy implements InstrumentStrategy{
 
-	/**
+    /**
      * Applies the Electric Bass Guitar instrument to the specified MIDI track and channel.
      * It sends a PROGRAM_CHANGE message with the MIDI instrument number for Electric Bass Guitar.
      *
