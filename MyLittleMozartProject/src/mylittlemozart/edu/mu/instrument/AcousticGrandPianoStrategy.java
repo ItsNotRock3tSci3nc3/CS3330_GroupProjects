@@ -5,7 +5,7 @@ import javax.sound.midi.*;
 
 public class AcousticGrandPianoStrategy implements InstrumentStrategy {
 
-	/**
+    /**
      * Applies the Trumpet instrument to the specified MIDI track and channel.
      * It sends a PROGRAM_CHANGE message with the MIDI instrument number for Trumpet.
      *
