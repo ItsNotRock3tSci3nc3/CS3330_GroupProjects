@@ -1,10 +1,8 @@
 package mylittlemozart.edu.mu.instrument;
 
-import javax.sound.midi.*;
+import javax.sound.midi.Track;
 
-
-interface InstrumentStrategy {
-	
+public interface InstrumentStrategy {
 	/**
 	 * Applies the instrument change to the specified track and channel.
 	 *
@@ -12,5 +10,5 @@ interface InstrumentStrategy {
 	 * @param channel the MIDI channel where the instrument should be set
 	 * @throws InvalidMidiDataException if the MIDI data is invalid
 	 */
-	void applyInstrument(Track track, int channel) throws InvalidMidiDataException;
+    void applyInstrument(Track track, int channel);
 }

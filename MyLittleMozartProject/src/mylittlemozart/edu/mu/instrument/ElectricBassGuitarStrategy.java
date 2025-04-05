@@ -1,6 +1,11 @@
 package mylittlemozart.edu.mu.instrument;
-import javax.sound.midi.*;
-public class ElectricBassGuitarStrategy implements InstrumentStrategy{
+
+import javax.sound.midi.InvalidMidiDataException;
+import javax.sound.midi.MidiEvent;
+import javax.sound.midi.ShortMessage;
+import javax.sound.midi.Track;
+
+public class ElectricBassGuitarStrategy implements InstrumentStrategy {
 
     /**
      * Applies the Electric Bass Guitar instrument to the specified MIDI track and channel.
@@ -10,13 +15,16 @@ public class ElectricBassGuitarStrategy implements InstrumentStrategy{
      * @param channel the MIDI channel where the instrument should be set
      * @throws InvalidMidiDataException if the MIDI data is invalid
      */
-	@Override
-	public void applyInstrument(Track track, int channel) throws InvalidMidiDataException {
-		ShortMessage instrumentChange = new ShortMessage();
-        instrumentChange.setMessage(ShortMessage.PROGRAM_CHANGE, channel, 33, 0); // 33 = Electric Bass
-        MidiEvent changeEvent = new MidiEvent(instrumentChange, 0);
-        track.add(changeEvent);
-		
-	}
-	
+    @Override
+    public void applyInstrument(Track track, int channel) {
+        try {
+            ShortMessage message = new ShortMessage();
+            // 192 (0xC0) = Program Change
+            message.setMessage(ShortMessage.PROGRAM_CHANGE, channel, 33, 0);
+            MidiEvent event = new MidiEvent(message, 0);
+            track.add(event);
+        } catch (InvalidMidiDataException e) {
+            e.printStackTrace();
+        }
+    }
 }
