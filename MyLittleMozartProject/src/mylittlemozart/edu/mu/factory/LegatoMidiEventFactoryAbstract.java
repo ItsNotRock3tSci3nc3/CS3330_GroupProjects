@@ -1,9 +1,10 @@
 package mylittlemozart.edu.mu.factory;
 
 /**
- * Abstract factory for legato MIDI events
+ * Concrete abstract factory that returns a LegatoMidiEventFactory.
  */
 public class LegatoMidiEventFactoryAbstract implements MidiEventFactoryAbstract {
+
     @Override
     public MidiEventFactory createFactory() {
         return new LegatoMidiEventFactory();
