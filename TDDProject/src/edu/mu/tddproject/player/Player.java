@@ -5,7 +5,7 @@ import edu.mu.tddproject.maze.Cell;
 import edu.mu.tddproject.maze.Row;
 
 /**
- * Represents the player or agent in the game.
+ * Player representation
  */
 public class Player {
     private Row currentRow;
