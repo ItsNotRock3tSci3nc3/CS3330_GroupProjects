@@ -1,5 +1,8 @@
 package edu.mu.tddproject.player;
 
-public class Movement {
-
+/**
+ * Defines possible movement directions for the agent.
+ */
+public enum Movement {
+    UP, DOWN, LEFT, RIGHT
 }
