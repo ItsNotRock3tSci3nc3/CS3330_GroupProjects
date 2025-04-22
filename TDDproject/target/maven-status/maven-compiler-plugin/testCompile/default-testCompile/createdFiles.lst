@@ -1,0 +1,5 @@
+edu/mu/tddproject/game/test/GameTest.class
+edu/mu/tddproject/maze/test/RowTest.class
+edu/mu/tddproject/maze/test/CellTest.class
+edu/mu/tddproject/maze/test/GridTest.class
+edu/mu/tddproject/player/test/PlayerTest.class
