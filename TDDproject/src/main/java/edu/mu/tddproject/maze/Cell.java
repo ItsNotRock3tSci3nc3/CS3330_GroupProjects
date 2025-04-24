@@ -10,6 +10,13 @@ public class Cell {
     private CellComponents up;
     private CellComponents down;
 
+    /**
+     * Cell constructor
+     * @param left
+     * @param right
+     * @param up
+     * @param down
+     */
     public Cell(CellComponents left, CellComponents right, CellComponents up, CellComponents down) {
         this.left = (left != null) ? left : CellComponents.WALL;
         this.right = (right != null) ? right : CellComponents.WALL;
@@ -22,18 +29,33 @@ public class Cell {
     public CellComponents getUp() { return up; }
     public CellComponents getDown() { return down; }
 
+    /**
+     * setter for left cell component
+     * @param left CellComponent
+     */
     public void setLeft(CellComponents left) {
         this.left = (left != null) ? left: CellComponents.WALL;
     }
-
+    /**
+     * setter for right cell component
+     * @param right CellComponent
+     */
     public void setRight(CellComponents right) {
     	this.right = (right != null) ? right: CellComponents.WALL;
     }
-
+    
+    /**
+     * setter for up cell component
+     * @param up CellComponent
+     */
     public void setUp(CellComponents up) {
     	this.up = (up != null) ? up: CellComponents.WALL;
     }
 
+    /**
+     * setter for down cell component
+     * @param down CellComponent
+     */
     public void setDown(CellComponents down) {
     	this.down = (down != null) ? down: CellComponents.WALL;
     }
