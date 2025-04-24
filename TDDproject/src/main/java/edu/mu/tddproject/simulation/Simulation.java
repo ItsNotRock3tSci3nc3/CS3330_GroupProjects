@@ -44,6 +44,11 @@ public class Simulation {
         scanner.close();
     }
 
+    /**
+     * Void method to print the grid
+     * @param grid object
+     * @param player object
+     */
     private static void printGrid(Grid grid, Player player) {
         for (int i = 0; i < grid.getRows().size(); i++) {
             Row row = grid.getRows().get(i);
