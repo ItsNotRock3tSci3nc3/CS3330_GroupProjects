@@ -1,5 +1,8 @@
 package edu.mu.tddproject.player;
 
-public class Movement {
-	// should use enums from game
+/**
+ * Movement directions for a agent
+ */
+public enum Movement {
+    UP, DOWN, LEFT, RIGHT
 }
