@@ -9,8 +9,12 @@ import edu.mu.tddproject.player.Player;
 import java.util.ArrayList;
 import java.util.Scanner;
 
+
+
 /**
  * Main class to run the game
+ * 
+ * GITHUB: https://github.com/ItsNotRock3tSci3nc3/CS3330_GroupProjects/tree/main/TDDproject
  */
 public class Simulation {
     public static void main(String[] args) {
