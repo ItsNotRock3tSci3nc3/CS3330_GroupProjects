@@ -15,23 +15,44 @@ import edu.mu.tddproject.player.Player;
  */
 public class Game {
     private Grid grid;
-
+    
+    /**
+     * game constructor with grid parameter
+     * @param Grid object
+     */
     public Game(Grid grid) {
         this.grid = grid;
     }
-
+    
+    /**
+     * game constructor with size parameter
+     * @param int size
+     */
     public Game(int size) {
         this.grid = createRandomGrid(size);
     }
-
+    
+    /**
+     * get grid method
+     * @return grid
+     */
     public Grid getGrid() {
         return grid;
     }
 
+    /**
+     * set grid method
+     * @param grid object
+     */
     public void setGrid(Grid grid) {
         this.grid = grid;
     }
 
+    /**
+     * Method to create random grid based on size parameter
+     * @param int size
+     * @return null if less than 3 or greater than 7, else return a randomized grid object of set size
+     */
     public Grid createRandomGrid(int size) {
         if (size < 3 || size > 7) {
         	return null;
@@ -95,6 +116,12 @@ public class Game {
         return new Grid(rows);
     }
 
+    /**
+     * play method, handles user inputs and makes modifications accordingly
+     * @param movement object
+     * @param player object
+     * @return false if parameters or grid is null, else returns true
+     */
     public boolean play(Movement movement, Player player) {
         if (movement == null || player == null || grid == null) {
         	return false;
