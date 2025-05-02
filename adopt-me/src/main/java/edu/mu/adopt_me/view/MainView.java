@@ -14,7 +14,10 @@ import javax.swing.JScrollPane;
 import javax.swing.ListSelectionModel;
 import edu.mu.adopt_me.model.Pet;
 
-
+/** 
+* MainView represents the GUI for the Pet Adoption Center application.
+* It provides components to view, add, remove, adopt, sort, and save pets.
+*/
 public class MainView extends JFrame {
 	private DefaultListModel<Pet> petListModel = new DefaultListModel<>();
 	private JList<Pet> petJList = new JList<>(petListModel);
@@ -26,6 +29,9 @@ public class MainView extends JFrame {
 	private	JComboBox<String> sortCombo = new JComboBox<>(new String[]{"Name", "Age", "Species"});
 
 
+/**
+* Constructs the main application window with all UI components.
+*/
 public MainView() {
 	setTitle("Pet Adoption Center");
 	setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
@@ -48,6 +54,10 @@ public MainView() {
     add(scrollPane, BorderLayout.CENTER);
 }
 
+/**
+* Updates the pet list displayed in the UI.
+* @param pets the list of pets to display
+*/
 public void updatePetList(List<Pet> pets) {
     petListModel.clear();
     for (Pet pet : pets) {
@@ -55,6 +65,16 @@ public void updatePetList(List<Pet> pets) {
     }
 }
 
+/**
+* @return the JList component displaying the pets
+* @return the button for adding a pet
+* @return the button for removing a pet
+* @return the button for adopting a pet
+* @return the button for saving a pet
+* @return the button for saving the pet list
+* @return the button for viewing pet details
+* @return the combo box used for sorting
+*/
 public JList<Pet> getPetJList() { return petJList; }
 public JButton getAddButton() { return addButton; }
 public JButton getRemoveButton { return removeButton; }
