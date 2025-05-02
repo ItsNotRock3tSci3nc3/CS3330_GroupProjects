@@ -1,21 +1,30 @@
 package edu.mu.adopt_me.view;
 
-import model;
-import javax.swing.*;
-import java.awt.*;
-import java.awt.event.*;
+import java.awt.BorderLayout;
+import java.awt.FlowLayout;
 import java.util.List;
+import javax.swing.DefaultListModel;
+import javax.swing.JButton;
+import javax.swing.JComboBox;
+import javax.swing.JFrame;
+import javax.swing.JLabel;
+import javax.swing.JList;
+import javax.swing.JPanel;
+import javax.swing.JScrollPane;
+import javax.swing.ListSelectionModel;
+import edu.mu.adopt_me.model.Pet;
+
 
 public class MainView extends JFrame {
 	private DefaultListModel<Pet> petListModel = new DefaultListModel<>();
-	private JList<Pet> petJList = new JList<>(petListModel)
+	private JList<Pet> petJList = new JList<>(petListModel);
 	private JButton addButton = new JButton("Add Pet");
 	private JButton removeButton = new JButton("Remove Pet");
 	private JButton detailsButton = new JButton("View Details");
 	private JButton adoptButton = new JButton("Adopt Pet");
 	private	JButton saveButton = new JButton("Save List");
 	private	JComboBox<String> sortCombo = new JComboBox<>(new String[]{"Name", "Age", "Species"});
-}
+
 
 public MainView() {
 	setTitle("Pet Adoption Center");
@@ -29,7 +38,7 @@ public MainView() {
 	topPanel.add(detailsButton);
 	topPanel.add(adoptButton);
 	topPanel.add(saveButton);
-	topPanel.add(new Jlabel \("sort by"));
+	topPanel.add(new JLabel("sort by"));
 	topPanel.add(sortCombo);
 	
     petJList.setSelectionMode(ListSelectionModel.SINGLE_SELECTION);
@@ -46,11 +55,10 @@ public void updatePetList(List<Pet> pets) {
     }
 }
 
-public JList<Pet> getPetJList() { return petJList; };
-public JButton getAddButton() { return addButton };
-public JButton getRemoveButton { return removeButton };
-public JButton getAdoptButton { return adoptButton };
-public JButton getSaveButton { return saveButton };
-public JButton getDetailsButton { return detailsButton };
+public JList<Pet> getPetJList() { return petJList; }
+public JButton getAddButton() { return addButton; }
+public JButton getRemoveButton { return removeButton; }
+public JButton getAdoptButton { return adoptButton; }
+public JButton getSaveButton { return saveButton; }
+public JButton getDetailsButton { return detailsButton; }
 public JComboBox<String> getSortCombo() { return sortCombo; }
-}
