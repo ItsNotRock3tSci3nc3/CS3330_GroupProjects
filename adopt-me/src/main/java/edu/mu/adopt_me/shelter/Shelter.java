@@ -1,10 +1,10 @@
 package edu.mu.adopt_me.shelter;
+
 import edu.mu.adopt_me.model.Pet;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
 import java.util.Optional;
-
 
 /**
  * Class for manipulating a shelter.

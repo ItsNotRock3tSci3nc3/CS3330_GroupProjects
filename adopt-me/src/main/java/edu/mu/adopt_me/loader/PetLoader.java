@@ -1,4 +1,5 @@
 package edu.mu.adopt_me.loader;
+
 import com.google.gson.Gson;
 import com.google.gson.reflect.TypeToken;
 import edu.mu.adopt_me.adapter.ExoticAnimalAdapter;
@@ -7,7 +8,7 @@ import edu.mu.adopt_me.shelter.Shelter;
 import java.io.InputStream;
 import java.io.InputStreamReader;
 import java.io.Reader;
-import java.lang.reflect.Type;
+import java.lang.reflect.Type;	
 import java.util.List;
 
 /**
@@ -38,13 +39,13 @@ public class PetLoader {
                 Pet pet;
                 switch (pj.type.toLowerCase()) {
                     case "dog":
-                        pet = new Dog(pj.id, pj.breed, pj.name, pj.age);
+                        pet = new Dog(pj.id, pj.species, pj.name, pj.age);
                         break;
                     case "cat":
-                        pet = new Cat(pj.id, pj.breed, pj.name, pj.age);
+                        pet = new Cat(pj.id, pj.species, pj.name, pj.age);
                         break;
                     case "rabbit":
-                        pet = new Rabbit(pj.id, pj.breed, pj.name, pj.age);
+                        pet = new Rabbit(pj.id, pj.species, pj.name, pj.age);
                         break;
                     default:
                         continue;
@@ -74,8 +75,9 @@ public class PetLoader {
     private static class PetJson {
         String id;
         String type;
-        String breed;
+        String species;
         String name;
         int age;
+        boolean adopted;
     }
 }

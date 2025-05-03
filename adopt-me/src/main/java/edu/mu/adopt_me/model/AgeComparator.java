@@ -2,7 +2,9 @@ package edu.mu.adopt_me.model;
 
 import java.util.Comparator;
 
-/** Sorts pets by age ascending */
+/**
+ * Sorts pets by age in ascending order.
+ */
 public class AgeComparator implements Comparator<Pet> {
     @Override
     public int compare(Pet a, Pet b) {

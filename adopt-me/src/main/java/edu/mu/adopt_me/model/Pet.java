@@ -62,7 +62,7 @@ public abstract class Pet implements Comparable<Pet> {
 	}
 	
 	/**
-	 * Allow age to be updated with birthday
+	 * Allow age to be updated.
 	 * @param age
 	 */
 	public void setAge(int age) {

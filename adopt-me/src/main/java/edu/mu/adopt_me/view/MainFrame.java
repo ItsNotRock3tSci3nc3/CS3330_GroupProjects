@@ -4,13 +4,15 @@ import com.google.gson.Gson;
 import edu.mu.adopt_me.loader.PetLoader;
 import edu.mu.adopt_me.model.*;
 import edu.mu.adopt_me.shelter.Shelter;
-
 import javax.swing.*;
 import java.awt.*;
 import java.io.FileWriter;
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
 
+/**
+ * Main GUI frame for the Pet app.
+ */
 public class MainFrame extends JFrame {
     private static final long serialVersionUID = 1L;
 	private final Shelter<Pet> shelter;
@@ -19,15 +21,19 @@ public class MainFrame extends JFrame {
     private final JComboBox<String> sortCombo;
     private final JButton addButton, adoptButton, removeButton, viewButton, saveButton;
 
+    /**
+     * Constructs the main app window and initializes components.
+     * @throws Exception if loading the pet data fails.
+     */
     public MainFrame() throws Exception {
         super("Pet Adoption Center");
 
-        // 1) Load data
+        // Load data
         shelter = new PetLoader().loadAll();
         tableModel = new PetTableModel(shelter);
         table = new JTable(tableModel);
 
-        // 2) Controls
+        // Buttons
         sortCombo   = new JComboBox<>(new String[]{"Name", "Age", "Species"});
         addButton   = new JButton("Add");
         adoptButton = new JButton("Adopt");
@@ -48,14 +54,19 @@ public class MainFrame extends JFrame {
         add(controls, BorderLayout.NORTH);
         add(new JScrollPane(table), BorderLayout.CENTER);
 
-        // 3) Listeners
-
+        // Listeners
         sortCombo.addActionListener(e -> {
             String sel = (String) sortCombo.getSelectedItem();
             switch (sel) {
-                case "Age":     shelter.sort(new AgeComparator());     break;
-                case "Species": shelter.sort(new SpeciesComparator()); break;
-                default:        shelter.sortByName();                  break;
+                case "Age":     
+                	shelter.sort(new AgeComparator());     
+                	break;
+                case "Species": 
+                	shelter.sort(new SpeciesComparator()); 
+                	break;
+                default:        
+                	shelter.sortByName();                  
+                	break;
             }
             tableModel.setShelter(shelter);
         });
@@ -68,14 +79,18 @@ public class MainFrame extends JFrame {
             JTextField ageField = new JTextField();
 
             JPanel panel = new JPanel(new GridLayout(0,2));
-            panel.add(new JLabel("ID:"));      panel.add(idField);
-            panel.add(new JLabel("Type:"));    panel.add(typeBox);
-            panel.add(new JLabel("Breed:"));   panel.add(speciesField);
-            panel.add(new JLabel("Name:"));    panel.add(nameField);
-            panel.add(new JLabel("Age:"));     panel.add(ageField);
+            panel.add(new JLabel("ID:"));      
+            panel.add(idField);
+            panel.add(new JLabel("Type:"));    
+            panel.add(typeBox);
+            panel.add(new JLabel("Breed:"));   
+            panel.add(speciesField);
+            panel.add(new JLabel("Name:"));    
+            panel.add(nameField);
+            panel.add(new JLabel("Age:"));     
+            panel.add(ageField);
 
-            int res = JOptionPane.showConfirmDialog(this, panel, "Add New Pet",
-                                                    JOptionPane.OK_CANCEL_OPTION);
+            int res = JOptionPane.showConfirmDialog(this, panel, "Add New Pet", JOptionPane.OK_CANCEL_OPTION);
             if (res == JOptionPane.OK_OPTION) {
                 try {
                     String id = idField.getText().trim();
@@ -85,9 +100,12 @@ public class MainFrame extends JFrame {
                     int age = Integer.parseInt(ageField.getText().trim());
                     Pet pet;
                     switch (type) {
-                        case "Dog":    pet = new Dog(id, breed, name, age); break;
-                        case "Cat":    pet = new Cat(id, breed, name, age); break;
-                        case "Rabbit": pet = new Rabbit(id, breed, name, age); break;
+                        case "Dog":    
+                        	pet = new Dog(id, breed, name, age); break;
+                        case "Cat":    
+                        	pet = new Cat(id, breed, name, age); break;
+                        case "Rabbit": 
+                        	pet = new Rabbit(id, breed, name, age); break;
                         default: return;
                     }
                     shelter.add(pet);
@@ -100,7 +118,9 @@ public class MainFrame extends JFrame {
 
         adoptButton.addActionListener(e -> {
             int row = table.getSelectedRow();
-            if (row < 0) return;
+            if (row < 0) { 
+            	return;
+            }
             Pet pet = tableModel.getPetAt(row);
             try {
                 pet.adopt();
@@ -112,7 +132,9 @@ public class MainFrame extends JFrame {
 
         removeButton.addActionListener(e -> {
             int row = table.getSelectedRow();
-            if (row < 0) return;
+            if (row < 0) {
+            	return;
+            }
             Pet pet = tableModel.getPetAt(row);
             shelter.remove(pet);
             tableModel.setShelter(shelter);
@@ -120,12 +142,14 @@ public class MainFrame extends JFrame {
 
         viewButton.addActionListener(e -> {
             int row = table.getSelectedRow();
-            if (row < 0) return;
+            if (row < 0) {
+            	return;
+            }
             Pet pet = tableModel.getPetAt(row);
-            JOptionPane.showMessageDialog(this, pet.toString(), 
-                                          "Pet Details", JOptionPane.INFORMATION_MESSAGE);
+            JOptionPane.showMessageDialog(this, pet.toString(), "Pet Details", JOptionPane.INFORMATION_MESSAGE);
         });
-
+        
+        // Save pets to JSON.
         saveButton.addActionListener(e -> {
             try {
                 String ts = LocalDateTime.now()
@@ -145,7 +169,11 @@ public class MainFrame extends JFrame {
         setSize(800, 600);
         setLocationRelativeTo(null);
     }
-
+    
+    /**
+     * Launches app.
+     * @param args
+     */
     public static void main(String[] args) {
         SwingUtilities.invokeLater(() -> {
             try {

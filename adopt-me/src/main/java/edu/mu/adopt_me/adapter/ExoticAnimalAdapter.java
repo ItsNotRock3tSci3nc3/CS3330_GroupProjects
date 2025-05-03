@@ -1,7 +1,7 @@
 package edu.mu.adopt_me.adapter;
+
 import edu.mu.adopt_me.model.ExoticAnimal;
 import edu.mu.adopt_me.model.Pet;
-
 
 /**
  * Adapts a Exotic animal to our Pet API.
